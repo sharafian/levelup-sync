@@ -17,6 +17,10 @@
     "build/**/*.d.ts",
     "index.js"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sharafian/levelup-sync.git"
+  },
   "author": "Ben Sharafian",
   "license": "Apache-2.0",
   "devDependencies": {
