@@ -81,6 +81,18 @@ export class LevelupSync<T> {
     }
   }
 
+  delSync (key: string): void {
+    const item = this._getCacheItem(key)
+    delete item.value
+
+    if (!item.writePromise) {
+      item.writePromise = this.db.del(key)
+        .then(this._moveQueueCallback.bind(this, item))
+    } else {
+      item.queuedWriteCallback = (() => this.db.del(key))
+    }
+  }
+
   _moveQueueCallback (item: LevelupCacheItem<T>): Promise<void> {
     if (item.queuedWriteCallback) {
       item.writePromise = item.queuedWriteCallback()
