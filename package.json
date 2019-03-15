@@ -3,9 +3,31 @@
   "version": "1.0.0",
   "description": "Provide synchronous interface for levelup (using a cache) to avoid race conditions.",
   "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "lint": "tslint --project .",
+    "pretest": "tsc --build",
+    "prepublishOnly": "npm run lint && npm test",
+    "test": "node test/test.js"
   },
-  "author": "",
-  "license": "Apache-2.0"
+  "files": [
+    "build/**/*.js",
+    "build/**/*.js.map",
+    "build/**/*.d.ts",
+    "index.js"
+  ],
+  "author": "Ben Sharafian",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/levelup": "^3.1.0",
+    "@types/node": "^11.11.3",
+    "ts-node": "^8.0.3",
+    "tslint": "^5.14.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "levelup": "^4.0.0"
+  }
 }
