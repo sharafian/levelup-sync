@@ -1,7 +1,7 @@
 {
   "name": "levelup-sync",
   "version": "1.0.0",
-  "description": "Provide synchronous interface for levelup (using a cache) to avoid race conditions.",
+  "description": "Provide a synchronous interface for levelup (using a cache) to avoid race conditions.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
