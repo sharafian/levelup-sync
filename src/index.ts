@@ -1,7 +1,7 @@
 import { LevelUp } from 'levelup'
 
 interface LevelupCacheItem<T> {
-  value: T,
+  value?: T,
   freeing?: boolean,
   writePromise?: Promise<void>,
   queuedWriteCallback?: () => Promise<void>
@@ -19,9 +19,16 @@ export class LevelupSync<T> {
   }
 
   async load (key: string): Promise<void> {
-    // TODO: handle key not found
-    const value = await this.db.get(key)
-    this.cache[key] = { value }
+    try {
+      const value = await this.db.get(key)
+      this.cache[key] = { value }
+    } catch (e) {
+      if (e.name === 'NotFoundError') {
+        this.cache[key] = {}
+      } else {
+        throw e
+      }
+    }
   }
 
   async free (key: string): Promise<void> {
@@ -57,7 +64,8 @@ export class LevelupSync<T> {
     return item
   }
 
-  getSync (key: string): T {
+  // TODO: should this throw an error if not found?
+  getSync (key: string): T | undefined {
     return this._getCacheItem(key).value
   }
 
