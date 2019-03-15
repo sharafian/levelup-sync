@@ -13,6 +13,7 @@ function goodIncrementBalance (amount) {
   console.log('writing new balance', newBalance)
 
   syncDb.putSync('balance', String(newBalance))
+  console.log('wrote new balance', newBalance)
 }
 
 async function run () {

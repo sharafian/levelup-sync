@@ -22,6 +22,7 @@ async function badIncrementBalance (amount) {
   console.log('writing new balance', newBalance)
   
   await db.put('balance', String(newBalance))
+  console.log('wrote new balance', newBalance)
 }
 
 async function run () {
