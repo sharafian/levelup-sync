@@ -1,6 +1,6 @@
 {
-  "name": "levelup-sync",
-  "version": "1.0.0",
+  "name": "levelup-sync-wrapper",
+  "version": "0.1.0",
   "description": "Provide a synchronous interface for levelup (using a cache) to avoid race conditions.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -9,7 +9,7 @@
     "lint": "tslint --project .",
     "pretest": "tsc --build",
     "prepublishOnly": "npm run lint && npm test",
-    "test": "node test/test.js"
+    "test": "echo 'no tests specified'"
   },
   "files": [
     "build/**/*.js",

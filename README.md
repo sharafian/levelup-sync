@@ -1,4 +1,4 @@
-# Levelup Sync
+# Levelup Sync Wrapper
 > Provides a synchronous interface for levelup (using a cache) to avoid race conditions.
 
 Race conditions are an easy pitfall to fall into.
@@ -58,7 +58,7 @@ synchronous writes), and then erase it from the cache.
 ```js
 const levelup = require('levelup')
 const leveldown = require('leveldown')
-const { LevelupSync } = require('..')
+const { LevelupSync } = require('levelup-sync-wrapper')
 
 const db = levelup(leveldown('./my-database'))
 const syncDb = new LevelupSync(db)
