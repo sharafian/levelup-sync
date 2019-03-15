@@ -1,6 +1,6 @@
 {
   "name": "levelup-sync-wrapper",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Provide a synchronous interface for levelup (using a cache) to avoid race conditions.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
