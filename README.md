@@ -87,3 +87,11 @@ run()
     process.exit(1)
   })
 ```
+
+To run these examples yourself, you can run:
+
+```sh
+npm install
+node examples/bad-increment.js
+node examples/good-increment.js
+```
